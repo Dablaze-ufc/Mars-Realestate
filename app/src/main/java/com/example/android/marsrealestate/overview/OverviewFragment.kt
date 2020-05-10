@@ -51,12 +51,11 @@ class OverviewFragment : Fragment() {
 
         // Giving the binding access to the OverviewViewModel
         binding.viewModel = viewModel
-        val adapter = PhotoGridAdapter()
 
-        binding.photosGrid.adapter = adapter
-        viewModel.properties.observe(viewLifecycleOwner, Observer {
-            adapter.submitList(it)
-        })
+        binding.photosGrid.adapter =  PhotoGridAdapter()
+//        viewModel.properties.observe(viewLifecycleOwner, Observer {
+//            adapter.submitList(it)
+//        })
 
 
         setHasOptionsMenu(true)

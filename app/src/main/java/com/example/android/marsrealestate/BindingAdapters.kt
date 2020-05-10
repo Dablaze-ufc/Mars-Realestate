@@ -28,6 +28,11 @@ import com.example.android.marsrealestate.network.MarsProperty
 import com.example.android.marsrealestate.overview.MarsApiStatus
 import com.example.android.marsrealestate.overview.PhotoGridAdapter
 
+@BindingAdapter("listData")
+fun bindRecyclerView(recyclerView: RecyclerView, data: List<MarsProperty>?) {
+    val adapter = recyclerView.adapter as PhotoGridAdapter
+    adapter.submitList(data)
+}
 
 @BindingAdapter("imageUrl")
 fun bindImage(imageView: ImageView, imgUrl: String?){
@@ -40,7 +45,7 @@ fun bindImage(imageView: ImageView, imgUrl: String?){
 }
 
 @BindingAdapter("marsApiStatus")
-fun bindStatus(statusImageView: ImageView , status:MarsApiStatus){
+fun bindStatus(statusImageView: ImageView , status:MarsApiStatus?){
     when(status){
         MarsApiStatus.LOADING ->{
             statusImageView.visibility = VISIBLE
